@@ -48,5 +48,9 @@ namespace AddressBook.Objects
     {
       _instances.Add(this);
     }
+    public static void DeleteAll()
+    {
+      _instances.Clear();
+    }
   }
 }

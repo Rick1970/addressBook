@@ -17,11 +17,15 @@ namespace AddressBook
       Post["/contact_added"] = _ =>{
         Contact oneContact = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
         oneContact.Save();
-        return View["/add_one.cshtml", oneContact];
+        return View["/contact_created.cshtml", oneContact];
       };
       Get["/all_contacts"] = _ =>{
         List<Contact> allContacts = Contact.GetAll();
         return View["all_contacts.cshtml",allContacts];
+      };
+      Post["/contacts_cleared"] = _ =>{
+        Contact.DeleteAll();
+        return View["contacts_deleted.cshtml"];
       };
 
     }
