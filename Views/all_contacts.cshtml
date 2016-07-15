@@ -1,0 +1,12 @@
+<h1>Your current contacts consist of:</h1>
+
+<ul>
+  @foreach(var pull in model)
+  {
+    <li>Name: @pull.GetName()</li>
+    <li>Address : @pull.GetAddress()</li>
+    <li>Phone Number: @pull.GetPhone()</li>
+  }
+</ul>
+
+<p><a href="addNew.cshtml">Click to add new contact</a></p>
