@@ -9,7 +9,7 @@ namespace AddressBook
     public HomeModule()
     {
       Get["/"] = _ =>{
-         return View["index.cshtml"];
+        return View["index.cshtml"];
       };
       Get["/add_new_contact"] = _ =>{
         return View["add_new_contact.cshtml"];
