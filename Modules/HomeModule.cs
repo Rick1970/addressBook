@@ -8,14 +8,19 @@ namespace AddressBook
   {
     public HomeModule()
     {
-      Get["/"] = _ => {
+      Get["/"] = _ =>{
          return View["index.cshtml"];
       };
-      Get["/add_new_contact"] = _ => {
+      Get["/add_new_contact"] = _ =>{
         return View["add_new_contact.cshtml"];
       };
-      Get["/all_contacts"] = _ => {
-        return View["all_contacts.cshtml"];
+      Get["/all_contacts"] = _ =>{
+        List<Contact> allContacts = Contact.GetAll();
+        return View["all_contacts.cshtml",allContacts];
+      };
+      Post["/contact_added"] = _ =>{
+        Contact oneContact = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
+        return View["/add_one.cshtml", oneContact];
       };
 
 
