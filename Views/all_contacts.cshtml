@@ -3,9 +3,9 @@
 <ul>
   @foreach(var pull in Model)
   {
-    <li>Name: pull.GetName()</li>
-    <li>Address : pull.GetAddress()</li>
-    <li>Phone Number: pull.GetPhone()</li>
+    <li>Name: @pull.GetName()</li>
+    <li>Address : @pull.GetAddress()</li>
+    <li>Phone Number: @pull.GetPhone()</li>
   }
 </ul>
 

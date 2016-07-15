@@ -14,15 +14,15 @@ namespace AddressBook
       Get["/add_new_contact"] = _ =>{
         return View["add_new_contact.cshtml"];
       };
+      Post["/contact_added"] = _ =>{
+        Contact oneContact = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
+        oneContact.Save();
+        return View["/add_one.cshtml", oneContact];
+      };
       Get["/all_contacts"] = _ =>{
         List<Contact> allContacts = Contact.GetAll();
         return View["all_contacts.cshtml",allContacts];
       };
-      Post["/contact_added"] = _ =>{
-        Contact oneContact = new Contact(Request.Form["name"], Request.Form["address"], Request.Form["phone"]);
-        return View["/add_one.cshtml", oneContact];
-      };
-
 
     }
   }

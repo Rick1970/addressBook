@@ -8,7 +8,7 @@ namespace AddressBook.Objects
     private string _name;
     private string _address;
     private string _phoneNumber;
-    private static List<Contact>_instances;
+    private static List<Contact>_instances = new List<Contact> {};
 
     public Contact(string name, string address, string phone)
     {
@@ -43,6 +43,10 @@ namespace AddressBook.Objects
     public static List<Contact> GetAll()
     {
       return _instances;
+    }
+    public void Save()
+    {
+      _instances.Add(this);
     }
   }
 }
